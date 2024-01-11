@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Posts {
+  id          Int @id @default(autoincrement()) @map("id")
+  //게시글 번호
+  title       String @map("title")
+  //게시글 제목
+  content     String @db.Text @map("content")
+  //게시글 내용
+
+  updatedAt DateTime @updatedAt @map("updatedAt")
+  createdAt DateTime @default(now()) @map("createdAt")
+  //생성, 수정 일자
+
+  @@map("Posts")
+}
