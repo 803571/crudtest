@@ -2,7 +2,7 @@ import express from 'express';
 import PostsRouter from './routes/posts.router.js';
 
 const app = express();
-const PORT = 3017;
+const PORT = 3000;
 
 app.use(express.json());
 app.use('/api', [PostsRouter]);
